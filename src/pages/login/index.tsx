@@ -1,25 +1,4 @@
-<<<<<<< HEAD
-import { LoginForm } from './components/form'
-import boxes from '../../assets/boxes.svg'
 
-export function Login() {
-  return (
-    <section className="w-screen h-screen d-flex justify-center items-center">
-      <div>
-        <div>
-          <div>
-            <h2>Bem vindo de Volta!</h2>
-            <p>Digite seu email e senha para fazer o login</p>
-          </div>
-          <LoginForm />
-        </div>
-        <div>
-          <img src={boxes} alt="Caixas" />
-        </div>
-      </div>
-      <p>@ 2024, Criado por Fast Order. Todos os direitos reservados.</p>
-    </section>
-=======
 import { LoginForm } from "./components/form"
 import logo from "../../assets/logo.svg"
 
@@ -38,8 +17,7 @@ export function Login() {
           </div>
         </div>
       </main>
-      <p className=" text-center fixed bottom-5 left-1/2 -translate-x-1/2 text-xs text-slate-400">@ 2024, Criado por Fast Order. Todos os direitos reservados.</p>
+      
     </>
->>>>>>> a5fb128e67bf54dac2064fa6213112617abdc202
   )
 }
