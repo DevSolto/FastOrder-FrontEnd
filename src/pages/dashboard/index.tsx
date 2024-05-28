@@ -10,7 +10,7 @@ export function Dashboard() {
     { name: 'Dashboard', link: '/dashboard' }
   ])
 
-  const updateBreadcrumbs = (newBreadcrumb: BreadcrumbItem) => {
+  const updateBreadcrumbs = (newBreadcrumb: BreadcrumbItem): void => {
     setBreadcrumbs([{ name: 'Dashboard', link: '/dashboard' }, newBreadcrumb])
   }
 
@@ -22,7 +22,7 @@ export function Dashboard() {
           <BreadcrumbLocal items={breadcrumbs} />
         </header>
         <Routes>
-          <Route path="/users" element={<Users />} />
+          <Route path="/usuarios" element={<Users />} />
         </Routes>
       </main>
     </div>

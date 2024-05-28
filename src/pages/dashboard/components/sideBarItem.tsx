@@ -1,17 +1,16 @@
-import { cn } from "@/lib/utils";
-import { cva } from "class-variance-authority";
-import { IconType } from "react-icons/lib";
-import { Link, useLocation } from "react-router-dom";
+import { cn } from '@/lib/utils'
+import { cva } from 'class-variance-authority'
+import { IconType } from 'react-icons/lib'
+import { Link, useLocation } from 'react-router-dom'
+import { BreadcrumbItem } from './breadcrumb/breadcrumbTypes'
 
 const sideBarItemVariant = cva(
-  "hover:scale-110 flex items-center gap-2 rounded-lg pl-2 py-1 pr-4 text-md transition focus:outline-none ",
+  'hover:scale-110 flex items-center gap-2 rounded-lg pl-2 py-1 pr-4 transition focus:outline-none ',
   {
     variants: {
       variant: {
-        default:
-          "",
-        active:
-          "bg-white text-primary shadow-sm"
+        default: '',
+        active: 'bg-white text-primary shadow-sm'
       },
       icon: {
         default: 'bg-white p-2 rounded-xl shadow',
@@ -19,47 +18,45 @@ const sideBarItemVariant = cva(
       }
     },
     defaultVariants: {
-      variant: "default"
+      variant: 'default'
     }
   }
-);
+)
 
-interface Item {
+interface SideBarItemProps {
   Icon: IconType
   link: string
   name: string
+  updateBreadcrumbs: (newBreadcrumb: BreadcrumbItem) => void
 }
 
+export function SideBarItem({
+  Icon,
+  link,
+  name,
+  updateBreadcrumbs
+}: SideBarItemProps) {
+  const location = useLocation()
 
-export function SideBarItem({ Icon,link,name, }: Item) {
-  let location = useLocation()
-  
-  let active = false
-  if(location.pathname === link){
-    active = true
+  const active = location.pathname === link
+
+  const variant = active ? 'active' : 'default'
+  const iconVariant = active ? 'active' : 'default'
+
+  const handleClick = () => {
+    updateBreadcrumbs({ name, link })
   }
 
-  let variant:"default" | "active" | null | undefined
-  let icon:"default" | "active" | null | undefined
-  if(active){
-    variant  = "active"
-    icon  = "active"
-  }else{
-    variant = "default"
-    icon = "default"
-  }
   return (
-    <>
-        
-        <Link
-          to={link}
-          className={cn(sideBarItemVariant({ variant }))}
-        >
-          <div className={cn(sideBarItemVariant({ icon }))}>
-            <Icon size={20}/>
-          </div>
-          {name}
-        </Link>
-    </>
-  );
+    <Link
+      onClick={handleClick}
+      to={link}
+      className={cn(sideBarItemVariant({ variant }))}
+    >
+      <div className={cn(sideBarItemVariant({ icon: iconVariant }))}>
+        <Icon size={20} />
+      </div>
+      {name}
+    </Link>
+  )
 }

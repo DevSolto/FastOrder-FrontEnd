@@ -1,4 +1,3 @@
-import React from 'react'
 import logo from '../../../../assets/logo.svg'
 import {
   IoBusiness,
@@ -9,11 +8,7 @@ import {
   IoRestaurant
 } from 'react-icons/io5'
 import { SideBarItemComponent } from './sideBarItem'
-import {
-  BreadcrumbItem,
-  SideBarItem,
-  SideBarProps
-} from '../breadcrumb/breadcrumbTypes'
+import { BreadcrumbItem, SideBarItem } from '../breadcrumb/breadcrumbTypes'
 
 interface SideBarProps {
   updateBreadcrumbs: (newBreadcrumb: BreadcrumbItem) => void

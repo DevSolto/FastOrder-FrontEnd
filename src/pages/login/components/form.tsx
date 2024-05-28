@@ -11,9 +11,9 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
+  FormMessage
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
 
 const formSchema = z.object({
   email: z.string().min(1, {
@@ -25,17 +25,17 @@ const formSchema = z.object({
 })
 
 export function LoginForm() {
-    const form = useForm<z.infer<typeof formSchema>>({
-        resolver: zodResolver(formSchema),
-        defaultValues: {
-          email: "",
-        }
-      })
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      email: ''
+    }
+  })
 
-      // 2. Define a submit handler.
-      function onSubmit() {
-        window.location.assign("/dashboard")
-      }
+  // 2. Define a submit handler.
+  function onSubmit() {
+    window.location.assign('/dashboard')
+  }
   return (
     <Form {...form}>
       <form
@@ -72,7 +72,12 @@ export function LoginForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" className="bg-sky-950 text-white hover:bg-sky-800">Entrar</Button>
+        <Button
+          type="submit"
+          className="bg-sky-950 text-white hover:bg-sky-800"
+        >
+          Entrar
+        </Button>
       </form>
     </Form>
   )

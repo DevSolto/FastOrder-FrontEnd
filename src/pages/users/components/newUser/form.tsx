@@ -23,34 +23,40 @@ import { useToast } from '@/components/ui/use-toast'
 
 const formSchema = z.object({
   name: z.string().min(1, { message: 'O nome é obrigatório.' }),
-  cpf: z.string().min(1, { message: 'O cpf é obrigatório.' }),
   email: z.string().min(1, { message: 'O email é obrigatório.' }),
-  phone: z.string().min(1, { message: 'O telefone é obrigatório.' }),
   role: z.string().min(1, { message: 'A função é obrigatória.' }),
   password: z
     .string()
     .min(8, { message: 'A senha precisa ter no mínimo 8 caracteres.' })
 })
 
-export function AddUserForm() {
+export function AddUserForm({
+  onClose,
+  onUserAdded
+}: {
+  onClose: () => void
+  onUserAdded: () => void
+}) {
   const { toast } = useToast()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: '',
-      cpf: '',
       email: '',
-      phone: '',
       role: '',
       password: ''
     }
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    // Simular requisição para cadastrar usuário
+    await new Promise((resolve) => setTimeout(resolve, 1000)) // Simulação de delay
     toast({
       title: 'Cadastro',
       description: `Usuário ${values.name} cadastrado com sucesso!`
     })
+    onUserAdded()
+    onClose()
   }
 
   return (
@@ -74,19 +80,6 @@ export function AddUserForm() {
         />
         <FormField
           control={form.control}
-          name="cpf"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>CPF</FormLabel>
-              <FormControl>
-                <Input placeholder="Digite o CPF do usuário" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
           name="email"
           render={({ field }) => (
             <FormItem>
@@ -100,25 +93,12 @@ export function AddUserForm() {
         />
         <FormField
           control={form.control}
-          name="phone"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Telefone</FormLabel>
-              <FormControl>
-                <Input placeholder="Digite o telefone do usuário" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
           name="role"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Função</FormLabel>
               <FormControl>
-                <Select {...field}>
+                <Select onValueChange={field.onChange} value={field.value}>
                   <SelectTrigger className="w-full">
                     <SelectValue placeholder="Selecione a função" />
                   </SelectTrigger>
@@ -149,7 +129,9 @@ export function AddUserForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Cadastrar</Button>
+        <Button variant={'add'} type="submit">
+          Cadastrar
+        </Button>
       </form>
     </Form>
   )

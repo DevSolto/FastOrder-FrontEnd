@@ -1,61 +1,75 @@
 import logo from '../../../assets/logo.svg'
-import { IoBusiness, IoHome, IoLayers , IoPeopleCircleOutline, IoReceipt, IoRestaurant } from 'react-icons/io5'
+import {
+  IoBusiness,
+  IoHome,
+  IoLayers,
+  IoPeopleCircleOutline,
+  IoReceipt,
+  IoRestaurant
+} from 'react-icons/io5'
 import { SideBarItem } from './sideBarItem'
+import { BreadcrumbItem } from './breadcrumb/breadcrumbTypes'
 
-export function SideBar() {
+interface SideBarProps {
+  updateBreadcrumbs: (newBreadcrumb: BreadcrumbItem) => void
+}
 
-  
+export function SideBar({ updateBreadcrumbs }: SideBarProps) {
   const items = [
     {
       icon: IoHome,
       link: '/dashboard',
       name: 'Dashboard',
-      active:false
+      active: false
     },
     {
-      icon: IoPeopleCircleOutline ,
+      icon: IoPeopleCircleOutline,
       link: '/dashboard/usuarios',
       name: 'Usuários',
-      active:false
+      active: false
     },
     {
       icon: IoBusiness,
       link: '/dashboard/unidades',
       name: 'Unidades',
-      active:false
+      active: false
     },
     {
-      icon: IoLayers  ,
+      icon: IoLayers,
       link: '/dashboard/relatorios',
       name: 'Relatorios',
-      active:false
+      active: false
     },
     {
       icon: IoReceipt,
       link: '/dashboard/pedidos',
-      name: 'Pedisos',
-      active:false
+      name: 'Pedidos',
+      active: false
     },
     {
       icon: IoRestaurant,
       link: '/dashboard/products',
       name: 'Produtos',
-      active:false
+      active: false
     }
   ]
-  
+
   return (
     <aside className="w-full max-w-72 p-10 flex flex-col gap-5">
       <div>
-        <img src={logo} alt="" className="w-full px-4" />
+        <img src={logo} alt="Logo" className="w-full px-4" />
       </div>
 
-      <div className="flex flex-col ite  items-start gap-3 mt-5">
-        {
-          items.map((item)=>{
-            return <SideBarItem Icon={item.icon} link={item.link} name={item.name}/>
-          })
-        }
+      <div className="flex flex-col items-start gap-3 mt-5">
+        {items.map((item) => (
+          <SideBarItem
+            key={item.link}
+            Icon={item.icon}
+            link={item.link}
+            name={item.name}
+            updateBreadcrumbs={updateBreadcrumbs}
+          />
+        ))}
       </div>
     </aside>
   )
