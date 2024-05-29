@@ -1,6 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
+import { fakerPT_BR as faker } from '@faker-js/faker';
 
 import { Button } from '@/components/ui/button'
 import {
@@ -20,6 +21,7 @@ import {
   SelectValue
 } from '@/components/ui/select'
 import { useToast } from '@/components/ui/use-toast'
+import { addUser } from '@/api'
 
 const formSchema = z.object({
   name: z.string().min(1, { message: 'O nome é obrigatório.' }),
@@ -49,12 +51,21 @@ export function AddUserForm({
   })
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    // Simular requisição para cadastrar usuário
-    await new Promise((resolve) => setTimeout(resolve, 1000)) // Simulação de delay
     toast({
       title: 'Cadastro',
-      description: `Usuário ${values.name} cadastrado com sucesso!`
+      description: `Funcionário ${values.name} cadastrado com sucesso!`
     })
+
+    const response = await addUser({
+      cpf:"23663797066",
+      email:values.email,
+      name:values.name,
+      password:values.password,
+      phone:faker.phone.number(),
+      role:values.role
+    })
+    console.log(response);
+    
     onUserAdded()
     onClose()
   }
@@ -72,7 +83,7 @@ export function AddUserForm({
             <FormItem>
               <FormLabel>Nome</FormLabel>
               <FormControl>
-                <Input placeholder="Digite o nome do usuário" {...field} />
+                <Input placeholder="Digite o nome do funcionário" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -85,7 +96,7 @@ export function AddUserForm({
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="Digite seu email" {...field} />
+                <Input placeholder="Digite o email do funcionário" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -100,11 +111,12 @@ export function AddUserForm({
               <FormControl>
                 <Select onValueChange={field.onChange} value={field.value}>
                   <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Selecione a função" />
+                    <SelectValue placeholder="Selecione a função do funcionário" className='placeholder:text-muted-foreground'/>
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="admin">Admin</SelectItem>
-                    <SelectItem value="user">User</SelectItem>
+                    <SelectItem value="ADMIN">Administrador</SelectItem>
+                    <SelectItem value="SELLER">Vendedor</SelectItem>
+                    <SelectItem value="SUPPLIER">Fornecedor</SelectItem>
                   </SelectContent>
                 </Select>
               </FormControl>
@@ -120,7 +132,7 @@ export function AddUserForm({
               <FormLabel>Senha</FormLabel>
               <FormControl>
                 <Input
-                  placeholder="Digite sua senha"
+                  placeholder="Digite a senha do funcionário"
                   type="password"
                   {...field}
                 />

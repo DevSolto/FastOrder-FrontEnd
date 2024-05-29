@@ -3,7 +3,7 @@ import {
   IoBusiness,
   IoHome,
   IoLayers,
-  IoPeopleCircleOutline,
+  IoPeople,
   IoReceipt,
   IoRestaurant
 } from 'react-icons/io5'
@@ -23,9 +23,9 @@ export function SideBar({ updateBreadcrumbs }: SideBarProps) {
       active: false
     },
     {
-      icon: IoPeopleCircleOutline,
-      link: '/dashboard/usuarios',
-      name: 'Usuários',
+      icon: IoPeople ,
+      link: '/dashboard/funcionarios',
+      name: 'Funcionários',
       active: false
     },
     {

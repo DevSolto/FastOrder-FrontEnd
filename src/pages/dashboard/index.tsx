@@ -22,7 +22,7 @@ export function Dashboard() {
           <BreadcrumbLocal items={breadcrumbs} />
         </header>
         <Routes>
-          <Route path="/usuarios" element={<Users />} />
+          <Route path="/funcionarios" element={<Users />} />
         </Routes>
       </main>
     </div>

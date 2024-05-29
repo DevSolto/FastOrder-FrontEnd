@@ -26,9 +26,9 @@ export function NewUser({ onUserAdded }: { onUserAdded: () => void }) {
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Novo usuário</DialogTitle>
+          <DialogTitle>Novo funcionário</DialogTitle>
           <DialogDescription>
-            Preencha todos os campos para adicionar um usuário
+            Preencha todos os campos para adicionar um funcionário
           </DialogDescription>
         </DialogHeader>
         <AddUserForm onClose={handleClose} onUserAdded={onUserAdded} />
