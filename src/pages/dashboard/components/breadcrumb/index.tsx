@@ -8,6 +8,7 @@ import {
   BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
 import { Slash } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 interface BreadcrumbItem {
   name: string
@@ -24,16 +25,16 @@ export function BreadcrumbLocal({ items }: BreadcrumbProps) {
       <BreadcrumbList>
         {items.map((item, index) => (
           <BreadcrumbItem key={index}>
-            {index < items.length - 1 ? (
-              <>
-                <BreadcrumbLink href={item.link}>{item.name}</BreadcrumbLink>
-                <BreadcrumbSeparator>
-                  <Slash />
-                </BreadcrumbSeparator>
-              </>
-            ) : (
-              <BreadcrumbPage>{item.name}</BreadcrumbPage>
-            )}
+            {
+              index < items.length - 1 ? (
+                <>
+                  <Link to={item.link}>{item.name}</Link>
+                  <BreadcrumbSeparator/>
+                </>
+              ) : (
+                item.name !== "Dashboard" ? <BreadcrumbPage>{item.name}</BreadcrumbPage> : <></>
+              )
+            }
           </BreadcrumbItem>
         ))}
       </BreadcrumbList>

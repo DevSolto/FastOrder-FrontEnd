@@ -21,7 +21,7 @@ export function Users() {
   }
 
   return (
-    <div className="bg-white p-5 m-5 rounded-2xl h-full flex-1">
+    <div className="bg-white p-5 m-2 rounded-2xl h-full flex-1 shadow-md">
       <header className="flex items-center justify-between py-3">
         <h1>Lista de Funcionários</h1>
         <NewUser onUserAdded={handleUserAdded} />
