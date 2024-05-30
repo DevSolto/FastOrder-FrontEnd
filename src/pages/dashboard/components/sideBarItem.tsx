@@ -5,16 +5,16 @@ import { Link, useLocation } from 'react-router-dom'
 import { BreadcrumbItem } from './breadcrumb/breadcrumbTypes'
 
 const sideBarItemVariant = cva(
-  'hover:scale-110 flex items-center gap-2 rounded-lg pl-2 py-1 pr-4 transition focus:outline-none ',
+  'hover:scale-110 flex items-center gap-2 rounded-2xl pl-2 py-2 pr-4 transition focus:outline-none',
   {
     variants: {
       variant: {
         default: '',
-        active: 'bg-white text-primary shadow-sm'
+        active: 'bg-white text-sky-950 shadow-md'
       },
       icon: {
-        default: 'bg-white p-2 rounded-xl shadow',
-        active: 'bg-white p-2 rounded-xl'
+        default: 'bg-white text-sky-950 p-2 rounded-xl shadow',
+        active: 'bg-sky-950 text-white p-2 rounded-xl'
       }
     },
     defaultVariants: {
