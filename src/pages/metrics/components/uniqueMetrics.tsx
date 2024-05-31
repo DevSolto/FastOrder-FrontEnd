@@ -35,25 +35,30 @@ export function UniqueMetrics() {
   return (
     <div className="flex w-full items-center justify-between gap-5">
       {metrics.map((metric, index) => (
-        <Card key={index} className='flex items-center justify-between w-full px-5 py-4'>
-          <div className='flex flex-col gap-3'>
-            <CardHeader className='p-0'>
-              <CardTitle >{metric.title}</CardTitle>
+        <Card
+          key={index}
+          className="flex items-center justify-between w-full px-5 py-4"
+        >
+          <div className="flex flex-col gap-3">
+            <CardHeader className="p-0">
+              <CardTitle>{metric.title}</CardTitle>
             </CardHeader>
-            <CardContent className='p-0'>
-              <p className='font-bold text-xl flex items-center gap-1'>
-                {metric.value} 
-                {
-                    metric.good ? (
-                        <span className='text-base text-green-500'>{metric.PercentageValue}</span>
-                    ):(
-                        <span className='text-base text-red-500'>{metric.PercentageValue}</span>
-                    )
-                }
+            <CardContent className="p-0">
+              <p className="font-bold text-xl flex items-center gap-1">
+                {metric.value}
+                {metric.good ? (
+                  <span className="text-base text-green-500">
+                    {metric.PercentageValue}
+                  </span>
+                ) : (
+                  <span className="text-base text-red-500">
+                    {metric.PercentageValue}
+                  </span>
+                )}
               </p>
             </CardContent>
           </div>
-          <div className='bg-sky-950 text-white p-2 rounded-lg'>
+          <div className="bg-sky-950 text-white p-2 rounded-lg">
             <metric.icon />
           </div>
         </Card>

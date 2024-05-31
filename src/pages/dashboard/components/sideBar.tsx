@@ -60,7 +60,7 @@ export function SideBar({ updateBreadcrumbs }: SideBarProps) {
         <img src={logo} alt="Logo" className="w-full px-4" />
       </div>
 
-      <div className="flex flex-col items-start gap-3 mt-5 " >
+      <div className="flex flex-col items-start gap-3 mt-5 ">
         {items.map((item) => (
           <SideBarItem
             key={item.link}

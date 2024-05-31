@@ -2,12 +2,10 @@ import React from 'react'
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
-import { Slash } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 interface BreadcrumbItem {
@@ -25,16 +23,14 @@ export function BreadcrumbLocal({ items }: BreadcrumbProps) {
       <BreadcrumbList>
         {items.map((item, index) => (
           <BreadcrumbItem key={index}>
-            {
-              index < items.length - 1 ? (
-                <>
-                  <Link to={item.link}>{item.name}</Link>
-                  <BreadcrumbSeparator/>
-                </>
-              ) : (
-                item.name !== "Dashboard" ? <BreadcrumbPage>{item.name}</BreadcrumbPage> : <></>
-              )
-            }
+            {index < items.length - 1 ? (
+              <>
+                <Link to={item.link}>{item.name}</Link>
+                <BreadcrumbSeparator />
+              </>
+            ) : (
+              <BreadcrumbPage>{item.name}</BreadcrumbPage>
+            )}
           </BreadcrumbItem>
         ))}
       </BreadcrumbList>

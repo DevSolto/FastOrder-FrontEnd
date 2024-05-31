@@ -17,23 +17,21 @@ export function Dashboard() {
 
   return (
     <div className="flex flex-col  bg-slate-100">
-      <div className='flex'>
-
-      <SideBar updateBreadcrumbs={updateBreadcrumbs} />
-      <main className="flex-1 h-screen flex flex-col">
-        <header className="p-5">
-          <BreadcrumbLocal items={breadcrumbs} />
-        </header>
-        <Routes>
-          <Route path="/funcionarios" element={<Users />} />
-          <Route path="/" element={<Metrics />} />
-        </Routes>
-        
-      </main>
+      <div className="flex">
+        <SideBar updateBreadcrumbs={updateBreadcrumbs} />
+        <main className="flex-1 h-screen flex flex-col">
+          <header className="p-5">
+            <BreadcrumbLocal items={breadcrumbs} />
+          </header>
+          <Routes>
+            <Route path="/funcionarios" element={<Users />} />
+            <Route path="/" element={<Metrics />} />
+          </Routes>
+        </main>
       </div>
       <p className="w-full text-center p-2  text-xs text-slate-400">
-          @ 2024, Criado por Fast Order. Todos os direitos reservados.
-        </p>
+        @ 2024, Criado por Fast Order. Todos os direitos reservados.
+      </p>
     </div>
   )
 }
