@@ -23,7 +23,7 @@ export function SideBar({ updateBreadcrumbs }: SideBarProps) {
       active: false
     },
     {
-      icon: IoPeople ,
+      icon: IoPeople,
       link: '/dashboard/funcionarios',
       name: 'Funcionários',
       active: false

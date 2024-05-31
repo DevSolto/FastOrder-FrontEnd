@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { fakerPT_BR as faker } from '@faker-js/faker';
+import { fakerPT_BR as faker } from '@faker-js/faker'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -57,15 +57,15 @@ export function AddUserForm({
     })
 
     const response = await addUser({
-      cpf:"23663797066",
-      email:values.email,
-      name:values.name,
-      password:values.password,
-      phone:faker.phone.number(),
-      role:values.role
+      cpf: '23663797066',
+      email: values.email,
+      name: values.name,
+      password: values.password,
+      phone: faker.phone.number(),
+      role: values.role
     })
-    console.log(response);
-    
+    console.log(response)
+
     onUserAdded()
     onClose()
   }
@@ -111,7 +111,10 @@ export function AddUserForm({
               <FormControl>
                 <Select onValueChange={field.onChange} value={field.value}>
                   <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Selecione a função do funcionário" className='placeholder:text-muted-foreground'/>
+                    <SelectValue
+                      placeholder="Selecione a função do funcionário"
+                      className="placeholder:text-muted-foreground"
+                    />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="ADMIN">Administrador</SelectItem>
