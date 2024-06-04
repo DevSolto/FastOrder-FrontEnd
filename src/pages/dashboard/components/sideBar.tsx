@@ -48,7 +48,7 @@ export function SideBar({ updateBreadcrumbs }: SideBarProps) {
     },
     {
       icon: IoRestaurant,
-      link: '/dashboard/products',
+      link: '/dashboard/produtos',
       name: 'Produtos',
       active: false
     }

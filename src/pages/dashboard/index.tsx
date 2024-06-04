@@ -5,6 +5,7 @@ import { BreadcrumbLocal } from './components/breadcrumb'
 import { BreadcrumbItem } from './components/breadcrumb/breadcrumbTypes'
 import { Users } from '../users'
 import { Metrics } from '../metrics'
+import { Products } from '../products'
 
 export function Dashboard() {
   const [breadcrumbs, setBreadcrumbs] = useState<BreadcrumbItem[]>([
@@ -25,6 +26,7 @@ export function Dashboard() {
           </header>
           <Routes>
             <Route path="/funcionarios" element={<Users />} />
+            <Route path="/produtos" element={<Products />} />
             <Route path="/" element={<Metrics />} />
           </Routes>
         </main>

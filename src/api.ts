@@ -13,6 +13,12 @@ interface User {
   phone: string
   role: string
 }
+interface Product {
+  id: string
+  name: string
+  description: string
+  type: string
+}
 
 export const getUsers = async (): Promise<User[]> => {
   try {
@@ -37,6 +43,17 @@ export const addUser = async (createUserParams: {
       process.env.API_URL + '/users/',
       createUserParams
     )
+
+    return response.data.data
+  } catch (error) {
+    console.error('There was a problem with the axios operation:', error)
+    return []
+  }
+}
+
+export async function getProducts(): Promise<Product[]> {
+  try {
+    const response = await axios.get(process.env.API_URL + '/products')
 
     return response.data.data
   } catch (error) {
