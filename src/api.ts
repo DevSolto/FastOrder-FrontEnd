@@ -1,5 +1,8 @@
 // src/api.ts
 import axios from 'axios'
+import * as dotenv from 'dotenv'
+
+dotenv.config()
 
 interface User {
   id: string
@@ -13,9 +16,7 @@ interface User {
 
 export const getUsers = async (): Promise<User[]> => {
   try {
-    const response = await axios.get(
-      'https://studious-potato-wjrxrwvjqr4cgwgg-3000.app.github.dev/api/users/'
-    )
+    const response = await axios.get(process.env.API_URL + '/users/')
 
     return response.data.data
   } catch (error) {
@@ -33,7 +34,7 @@ export const addUser = async (createUserParams: {
 }): Promise<User[]> => {
   try {
     const response = await axios.post(
-      'https://studious-potato-wjrxrwvjqr4cgwgg-3000.app.github.dev/api/users/',
+      process.env.API_URL + '/users/',
       createUserParams
     )
 
