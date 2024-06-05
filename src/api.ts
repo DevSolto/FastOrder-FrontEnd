@@ -1,8 +1,7 @@
 // src/api.ts
 import axios from 'axios'
-import * as dotenv from 'dotenv'
 
-dotenv.config()
+const url = 'http://localhost:3000/api/'
 
 interface User {
   id: string
@@ -22,7 +21,7 @@ interface Product {
 
 export const getUsers = async (): Promise<User[]> => {
   try {
-    const response = await axios.get(process.env.API_URL + '/users/')
+    const response = await axios.get(url + 'users/')
 
     return response.data.data
   } catch (error) {
@@ -39,10 +38,7 @@ export const addUser = async (createUserParams: {
   role: string
 }): Promise<User[]> => {
   try {
-    const response = await axios.post(
-      process.env.API_URL + '/users/',
-      createUserParams
-    )
+    const response = await axios.post(url + 'users/', createUserParams)
 
     return response.data.data
   } catch (error) {
@@ -51,9 +47,9 @@ export const addUser = async (createUserParams: {
   }
 }
 
-export async function getProducts(): Promise<Product[]> {
+export const getProducts = async (): Promise<Product[]> => {
   try {
-    const response = await axios.get(process.env.API_URL + '/products')
+    const response = await axios.get(url + 'products')
 
     return response.data.data
   } catch (error) {
