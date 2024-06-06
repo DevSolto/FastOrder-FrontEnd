@@ -20,7 +20,12 @@ export function NewProduct({ onProductAdded }: { onProductAdded: () => void }) {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button className='border-0' variant={'add'} size={'sm'} onClick={() => setIsOpen(true)}>
+        <Button
+          className="border-0"
+          variant={'add'}
+          size={'sm'}
+          onClick={() => setIsOpen(true)}
+        >
           Novo +
         </Button>
       </DialogTrigger>

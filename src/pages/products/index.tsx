@@ -16,15 +16,15 @@ export function Products() {
     fetchproducts()
   }, [])
 
-    const handleProductAdded = () => {
-      fetchproducts() // Recarregar a lista de usuários
-    }
+  const handleProductAdded = () => {
+    fetchproducts() // Recarregar a lista de usuários
+  }
 
   return (
-    <div className="shadow-md bg-white/20 backdrop-blur-md p-5 m-2  flex-1 flex flex-col gap-5 rounded-3xl h-full">
+    <div className="bg-white flex-1 flex flex-col p-5 m-2 rounded-2xl shadow-md h-2/5">
       <header className="flex items-center justify-between py-3">
-        <h1 className='text-white'>Lista de produtos</h1>
-        <NewProduct onProductAdded={handleProductAdded}/>
+        <h1>Lista de produtos</h1>
+        <NewProduct onProductAdded={handleProductAdded} />
       </header>
       <DataTable columns={columns} data={products} />
     </div>

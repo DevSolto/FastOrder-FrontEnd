@@ -10,7 +10,7 @@ import { Products } from '../products'
 export function Dashboard() {
   const [breadcrumbs, setBreadcrumbs] = useState<BreadcrumbItem[]>([
     { name: 'Dashboard', link: '/dashboard' },
-    { name: 'Metricas', link: '' },
+    { name: 'Metricas', link: '' }
   ])
 
   const updateBreadcrumbs = (newBreadcrumb: BreadcrumbItem): void => {
@@ -18,12 +18,12 @@ export function Dashboard() {
   }
 
   return (
-    <div className="flex flex-col  bg-slate-100">
-      <div className="flex p-5">
+    <div className="p-5 bg-slate-100 h-screen">
+      <div className="flex h-full">
         <SideBar updateBreadcrumbs={updateBreadcrumbs} />
-        <main className="flex-1 h-screen flex flex-col">
-          <header className="p-5 pb-52 -mb-40 rounded-3xl" id='header'>
-            <BreadcrumbLocal items={breadcrumbs}/>
+        <main className="flex-1 flex flex-col">
+          <header className="p-5 pb-24 -mb-20 rounded-3xl" id="header">
+            <BreadcrumbLocal items={breadcrumbs} />
           </header>
           <Routes>
             <Route path="/funcionarios" element={<Users />} />
@@ -32,9 +32,6 @@ export function Dashboard() {
           </Routes>
         </main>
       </div>
-      <p className="w-full text-center p-2  text-xs text-slate-400">
-        @ 2024, Criado por Fast Order. Todos os direitos reservados.
-      </p>
     </div>
   )
 }
