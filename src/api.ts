@@ -1,7 +1,7 @@
 // src/api.ts
 import axios from 'axios'
 
-const url = 'http://localhost:3000/api/'
+const url = 'https://fastorder-api.onrender.com/api/'
 
 interface User {
   id: string

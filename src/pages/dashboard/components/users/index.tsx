@@ -1,8 +1,8 @@
 import { NewUser } from './components/newUser'
 import React, { useState, useEffect } from 'react'
-import { DataTable } from '../../components/local/dataTable'
 import { columns, User } from './components/table/columns'
 import { getUsers } from '@/api'
+import { DataTable } from '@/components/local/dataTable'
 
 export function Users() {
   const [users, setUsers] = useState<User[]>([])
@@ -21,7 +21,7 @@ export function Users() {
   }
 
   return (
-    <div className="bg-white p-5 m-2 rounded-2xl h-full flex-1 shadow-md">
+    <div className="bg-white p-5 m-2 h-2 rounded-3xl flex-1 shadow-md flex flex-col">
       <header className="flex items-center justify-between py-3">
         <h1>Lista de Funcionários</h1>
         <NewUser onUserAdded={handleUserAdded} />
