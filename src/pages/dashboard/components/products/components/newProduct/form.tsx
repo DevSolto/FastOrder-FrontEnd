@@ -106,7 +106,10 @@ export function AddProductForm({
             <FormItem>
               <FormLabel>Descrição</FormLabel>
               <FormControl>
-                <Textarea placeholder='Digite a descrição do produto' {...field}/>
+                <Textarea
+                  placeholder="Digite a descrição do produto"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>

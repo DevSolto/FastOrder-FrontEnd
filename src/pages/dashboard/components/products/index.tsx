@@ -16,9 +16,9 @@ export function Products() {
     fetchproducts()
   }, [])
 
-    const handleProductAdded = () => {
-      fetchproducts() // Recarregar a lista de usuários
-    }
+  const handleProductAdded = () => {
+    fetchproducts() // Recarregar a lista de usuários
+  }
 
   return (
     <div className="bg-white p-5 m-2 h-2 rounded-3xl flex-1 shadow-md flex flex-col">

@@ -31,17 +31,15 @@ export function DataTable<TData, TValue>({
   })
 
   return (
-    <ScrollArea className='h-full'>
-
-      <Table className='text-primay'>
-        <TableHeader>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <TableHead key={header.id} className="text-sm text-primary">
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
+    <Table className='text-white'>
+      <TableHeader>
+        {table.getHeaderGroups().map((headerGroup) => (
+          <TableRow key={headerGroup.id}>
+            {headerGroup.headers.map((header) => (
+              <TableHead key={header.id} className="text-sm text-white">
+                {header.isPlaceholder
+                  ? null
+                  : flexRender(
                       header.column.columnDef.header,
                       header.getContext()
                     )}

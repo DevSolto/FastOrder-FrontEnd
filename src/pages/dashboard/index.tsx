@@ -10,7 +10,7 @@ import { Metrics } from './components/metrics'
 export function Dashboard() {
   const [breadcrumbs, setBreadcrumbs] = useState<BreadcrumbItem[]>([
     { name: 'Dashboard', link: '/dashboard' },
-    { name: 'Metricas', link: '' },
+    { name: 'Metricas', link: '' }
   ])
 
   const updateBreadcrumbs = (newBreadcrumb: BreadcrumbItem): void => {
