@@ -25,11 +25,11 @@ export function BreadcrumbLocal({ items }: BreadcrumbProps) {
           <BreadcrumbItem key={index}>
             {index < items.length - 1 ? (
               <>
-                <Link to={item.link}>{item.name}</Link>
+                <Link to={item.link} className='text-white'>{item.name}</Link>
                 <BreadcrumbSeparator />
               </>
             ) : (
-              <BreadcrumbPage>{item.name}</BreadcrumbPage>
+              <BreadcrumbPage className='text-slate-300'>{item.name}</BreadcrumbPage>
             )}
           </BreadcrumbItem>
         ))}

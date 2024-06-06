@@ -19,7 +19,7 @@ export function SideBar({ updateBreadcrumbs }: SideBarProps) {
     {
       icon: IoHome,
       link: '/dashboard',
-      name: 'Dashboard',
+      name: 'Metricas ',
       active: false
     },
     {

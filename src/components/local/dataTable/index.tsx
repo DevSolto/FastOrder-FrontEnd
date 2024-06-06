@@ -29,12 +29,12 @@ export function DataTable<TData, TValue>({
   })
 
   return (
-    <Table>
+    <Table className='text-white'>
       <TableHeader>
         {table.getHeaderGroups().map((headerGroup) => (
           <TableRow key={headerGroup.id}>
             {headerGroup.headers.map((header) => (
-              <TableHead key={header.id} className="text-sm">
+              <TableHead key={header.id} className="text-sm text-white">
                 {header.isPlaceholder
                   ? null
                   : flexRender(

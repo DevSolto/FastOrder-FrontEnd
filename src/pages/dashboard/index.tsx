@@ -9,7 +9,8 @@ import { Products } from '../products'
 
 export function Dashboard() {
   const [breadcrumbs, setBreadcrumbs] = useState<BreadcrumbItem[]>([
-    { name: 'Dashboard', link: '/dashboard' }
+    { name: 'Dashboard', link: '/dashboard' },
+    { name: 'Metricas', link: '' },
   ])
 
   const updateBreadcrumbs = (newBreadcrumb: BreadcrumbItem): void => {
@@ -18,11 +19,11 @@ export function Dashboard() {
 
   return (
     <div className="flex flex-col  bg-slate-100">
-      <div className="flex">
+      <div className="flex p-5">
         <SideBar updateBreadcrumbs={updateBreadcrumbs} />
         <main className="flex-1 h-screen flex flex-col">
-          <header className="p-5">
-            <BreadcrumbLocal items={breadcrumbs} />
+          <header className="p-5 pb-52 -mb-40 rounded-3xl" id='header'>
+            <BreadcrumbLocal items={breadcrumbs}/>
           </header>
           <Routes>
             <Route path="/funcionarios" element={<Users />} />

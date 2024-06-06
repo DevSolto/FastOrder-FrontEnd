@@ -43,5 +43,8 @@
       @apply bg-background text-foreground;
       font-family:;
     }
+    #header{
+      background-image: url("/public/Background.png");
+    }
   }
 }
