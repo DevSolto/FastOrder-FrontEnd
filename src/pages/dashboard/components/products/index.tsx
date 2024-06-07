@@ -23,8 +23,8 @@ export function Products() {
   return (
     <div className="bg-white p-5 m-2 h-2 rounded-3xl flex-1 shadow-md flex flex-col">
       <header className="flex items-center justify-between py-3">
-        <h1 className='text-primary'>Lista de produtos</h1>
-        <NewProduct onProductAdded={handleProductAdded}/>
+        <h1 className="text-primary">Lista de produtos</h1>
+        <NewProduct onProductAdded={handleProductAdded} />
       </header>
       <DataTable columns={columns} data={products} />
     </div>

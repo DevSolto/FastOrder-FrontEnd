@@ -21,7 +21,7 @@ export function Dashboard() {
     <div className="flex h-screen bg-slate-100 p-5">
       <SideBar updateBreadcrumbs={updateBreadcrumbs} />
       <main className="flex-1 flex flex-col h-full">
-        <header className="p-5 pb-24 -mb-20 rounded-3xl" id='header'>
+        <header className="p-5 pb-24 -mb-20 rounded-3xl" id="header">
           <BreadcrumbLocal items={breadcrumbs} />
         </header>
         <Routes>
