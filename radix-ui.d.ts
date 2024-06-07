@@ -1,0 +1,5 @@
+declare module '@radix-ui/react-alert-dialog'
+declare module '@radix-ui/react-avatar'
+declare module '@radix-ui/react-navigation-menu'
+declare module '@radix-ui/react-popover'
+declare module '@radix-ui/react-scroll-area'

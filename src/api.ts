@@ -1,7 +1,7 @@
 // src/api.ts
 import axios from 'axios'
 
-const url = 'https://fastorder-api.onrender.com/api/'
+const url = 'http://localhost:3000/api/'
 
 interface User {
   id: string
@@ -12,6 +12,21 @@ interface User {
   phone: string
   role: string
 }
+interface Unity {
+  name: string
+  description: string
+  type: string
+}
+interface UnityResponse {
+  name?: string
+  description?: string
+  type?: string
+  status?: number
+  success?: boolean
+  message?: string
+  errors?: { name: string[] }
+}
+
 interface Product {
   id: string
   name: string
@@ -55,5 +70,34 @@ export const getProducts = async (): Promise<Product[]> => {
   } catch (error) {
     console.error('There was a problem with the axios operation:', error)
     return []
+  }
+}
+
+export const getUnities = async (): Promise<Unity[]> => {
+  try {
+    const response = await axios.get(url + 'unities/')
+
+    return response.data.data
+  } catch (error) {
+    console.error('There was a problem with the axios operation:', error)
+    return []
+  }
+}
+export const createUnity = async (unityData: Unity): Promise<UnityResponse> => {
+  try {
+    const response = await axios.post(url + 'unities/', unityData)
+
+    return response.data
+  } catch (error: any) {
+    console.log('There was a problem with the axios operation:', error)
+
+    return {
+      status: error.response?.status || 500,
+      success: false,
+      message: error.response?.data?.message || 'Erro no servidor',
+      errors: error.response?.data?.errors || {
+        name: ['Erro desconhecido']
+      }
+    }
   }
 }
