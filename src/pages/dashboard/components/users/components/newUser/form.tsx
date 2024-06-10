@@ -21,7 +21,7 @@ import {
   SelectValue
 } from '@/components/ui/select'
 import { useToast } from '@/components/ui/use-toast'
-import { addUser } from '@/api'
+import { createUser } from '@/api/user'
 
 const formSchema = z.object({
   name: z.string().min(1, { message: 'O nome é obrigatório.' }),
@@ -56,7 +56,7 @@ export function AddUserForm({
       description: `Funcionário ${values.name} cadastrado com sucesso!`
     })
 
-    const response = await addUser({
+    const response = await createUser({
       cpf: '23663797066',
       email: values.email,
       name: values.name,

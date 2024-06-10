@@ -22,7 +22,7 @@ import {
 } from '@/components/ui/select'
 import { useToast } from '@/components/ui/use-toast'
 import { Textarea } from '@/components/ui/textarea'
-import { createUnity } from '@/api'
+import { createUnity } from '@/api/user'
 import { Loader } from 'lucide-react'
 
 const formSchema = z.object({

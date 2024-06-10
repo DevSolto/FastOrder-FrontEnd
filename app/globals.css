@@ -44,7 +44,7 @@
       font-family: 'roboto';
     }
     #header {
-      background-image: url('/public/Background.png');
+      background-image: url('/Background.png');
     }
   }
 }

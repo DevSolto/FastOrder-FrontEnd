@@ -6,11 +6,11 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Form } from '@/components/ui/form'
 import { useToast } from '@/components/ui/use-toast'
-import { createUnity } from '@/api'
 
 import FormInput from './FormInput'
 import FormSelect from './FormSelect'
 import FormTextarea from './FormTextarea'
+import { createUnity } from '@/api/Unity'
 
 const formSchema = z.object({
   name: z.string().min(1, { message: 'O nome é obrigatório.' }),

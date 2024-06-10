@@ -100,6 +100,9 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.3)
+      vite-plugin-env-compatible:
+        specifier: ^2.0.1
+        version: 2.0.1
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -2391,12 +2394,25 @@ packages:
         integrity: sha512-7ZgogeTnjuHbo+ct10G9Ffp0mif17idi0IyWNVA/wcwcm7NPOD/WEHVP3n7n3MhXqxoIYm8d6MuZohYWIZ4T3w==
       }
 
+  dotenv-expand@5.1.0:
+    resolution:
+      {
+        integrity: sha512-YXQl1DSa4/PQyRfgrv6aoNjhasp/p4qs9FjJ4q4cQk+8m4r6k4ZSiEyytKG8f8W9gi8WsQtIObNmKd+tMzNTmA==
+      }
+
   dotenv@16.4.5:
     resolution:
       {
         integrity: sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==
       }
     engines: { node: '>=12' }
+
+  dotenv@8.2.0:
+    resolution:
+      {
+        integrity: sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
+      }
+    engines: { node: '>=8' }
 
   eastasianwidth@0.2.0:
     resolution:
@@ -4657,6 +4673,12 @@ packages:
     engines: { node: ^18.0.0 || >=20.0.0 }
     hasBin: true
 
+  vite-plugin-env-compatible@2.0.1:
+    resolution:
+      {
+        integrity: sha512-DRrOZTg/W44ojVQQfGSMPEgYQGzp5TeIpt9cpaK35hTOC/b2D7Ffl8/RIgK8vQ0mlnDIUgETcA173bnMEkyzdw==
+      }
+
   vite-tsconfig-paths@4.3.2:
     resolution:
       {
@@ -6323,7 +6345,11 @@ snapshots:
 
   dom-accessibility-api@0.6.3: {}
 
+  dotenv-expand@5.1.0: {}
+
   dotenv@16.4.5: {}
+
+  dotenv@8.2.0: {}
 
   eastasianwidth@0.2.0: {}
 
@@ -7770,6 +7796,11 @@ snapshots:
       - sugarss
       - supports-color
       - terser
+
+  vite-plugin-env-compatible@2.0.1:
+    dependencies:
+      dotenv: 8.2.0
+      dotenv-expand: 5.1.0
 
   vite-tsconfig-paths@4.3.2(typescript@5.4.5)(vite@5.2.10(@types/node@20.12.7)):
     dependencies:
